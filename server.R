@@ -49,7 +49,7 @@ shinyServer(function(input, output) {
             plot.title = element_text(size=12, face ="bold"))  # modify theme to change text angle and legend position
     
     if (input$is_stacked) {
-      p + geom_bar(stat = "identity", aes_string(fill=~prediction)) # add bar geom and use prediction as fill
+      p + geom_bar(stat = "identity") + aes_string(fill=~prediction) # add bar geom and use prediction as fill
     }
     else{
       p + geom_bar() + aes_string(fill=input$categorical_variable) + # add bar geom and use input$categorical_variables as fill 
